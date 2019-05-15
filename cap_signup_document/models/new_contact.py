@@ -2,7 +2,7 @@ from odoo import api, fields, models, _
 from odoo.exceptions import UserError
 
 # override do_signup method to allow referred_by_id to be set from sign-up form
-class AuthSignupHome(AuthSignupHome):
+class AuthSignupHome(models.Model):
     def do_signup(self, qcontext):
         """ Shared helper that creates a res.partner out of a token """
         values = dict((key, qcontext.get(key)) for key in ('login', 'name', 'password', 'x_studio_additional_info'))
